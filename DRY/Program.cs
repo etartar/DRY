@@ -1,4 +1,5 @@
 ﻿using DRY.ComputingBigCsv;
+using DRY.DesignPatterns.VisitorPattern.Scenario1.Concrete;
 using DRY.Loop;
 using DRY.ReplaceIFElseStatement;
 using DRY.SmartEnumeration;
@@ -14,6 +15,7 @@ namespace DRY
             //ReplaceIfElseStatement();
             //SmartEnumeration();
             //CsvReader();
+            VisitorDesignPatternScenario1();
 
             Console.WriteLine("Hello World!");
         }
@@ -51,6 +53,18 @@ namespace DRY
         {
             CsvReaderProgram.CsvReadWithoutPLINQ();
             CsvReaderProgram.CsvReadWithPLINQ();
+        }
+        #endregion
+
+        #region [Visitor Design Pattern]
+        static void VisitorDesignPatternScenario1()
+        {
+            School school = new School();
+            var visitor1 = new Doctor("James");
+            school.PerformOperation(visitor1);
+            Console.WriteLine();
+            var visitor2 = new Sallesman("John");
+            school.PerformOperation(visitor2);
         }
         #endregion
     }
