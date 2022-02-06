@@ -1,5 +1,6 @@
 ﻿using DRY.Loop;
 using DRY.ReplaceIFElseStatement;
+using DRY.SmartEnumeration;
 using System;
 
 namespace DRY
@@ -38,7 +39,8 @@ namespace DRY
         #region Smart Enumeration
         static void SmartEnumeration()
         {
-            //
+            Console.WriteLine(SmartEnumerationProgram.GetDiscount(EnumSubscription.Premium));
+            Console.WriteLine(Subscriptions.Premium.Discount);
         }
         #endregion
     }

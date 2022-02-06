@@ -9,4 +9,8 @@
     <Folder Include="SmartEnum\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Ardalis.SmartEnum" Version="2.0.1" />
+  </ItemGroup>
+
 </Project>
