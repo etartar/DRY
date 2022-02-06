@@ -1,4 +1,6 @@
 ﻿using DRY.ComputingBigCsv;
+using DRY.DesignPatterns.DecoratorPattern.Scenario1.Abstract;
+using DRY.DesignPatterns.DecoratorPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.VisitorPattern.Scenario1.Concrete;
 using DRY.Loop;
 using DRY.ReplaceIFElseStatement;
@@ -15,7 +17,8 @@ namespace DRY
             //ReplaceIfElseStatement();
             //SmartEnumeration();
             //CsvReader();
-            VisitorDesignPatternScenario1();
+            //VisitorDesignPatternScenario1();
+            DecoratorDesignPatternScenario1();
 
             Console.WriteLine("Hello World!");
         }
@@ -65,6 +68,23 @@ namespace DRY
             Console.WriteLine();
             var visitor2 = new Sallesman("John");
             school.PerformOperation(visitor2);
+        }
+        #endregion
+
+        #region Decorator Design Pattern
+        static void DecoratorDesignPatternScenario1()
+        {
+            IWeatherService weatherService = new WeatherService();
+            Console.WriteLine(weatherService.GetWeather("UK"));
+            Console.WriteLine();
+
+            IWeatherService weatherLogging = new LoggingService(weatherService);
+            Console.WriteLine(weatherLogging.GetWeather("US"));
+            Console.WriteLine();
+
+            IWeatherService weatherCaching = new CachingWeatherService(weatherService);
+            Console.WriteLine(weatherCaching.GetWeather("EG"));
+            Console.WriteLine();
         }
         #endregion
     }
