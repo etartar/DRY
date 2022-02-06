@@ -1,4 +1,5 @@
 ﻿using DRY.Loop;
+using DRY.ReplaceIFElseStatement;
 using System;
 
 namespace DRY
@@ -8,6 +9,8 @@ namespace DRY
         static void Main(string[] args)
         {
             LoopExample();
+            ReplaceIfElseStatement();
+            SmartEnumeration();
 
             Console.WriteLine("Hello World!");
         }
@@ -19,6 +22,23 @@ namespace DRY
             LoopProgram.ForeachLoop();
             LoopProgram.TupleWithSelectMethod();
             LoopProgram.ExtensionLoop();
+        }
+        #endregion
+
+        #region [Replace If Else Statement]
+        static void ReplaceIfElseStatement()
+        {
+            var replaceIfElseStatementBad = new ReplaceIFElseStatementBad();
+            var replaceIfElseStatementGood = new ReplaceIFElseStatementGood();
+            Console.WriteLine(replaceIfElseStatementBad.CalculateTotalAfterDiscount());
+            Console.WriteLine(replaceIfElseStatementGood.CalculateTotalAfterDiscount());
+        }
+        #endregion
+
+        #region Smart Enumeration
+        static void SmartEnumeration()
+        {
+            //
         }
         #endregion
     }
