@@ -1,4 +1,5 @@
-﻿using DRY.Loop;
+﻿using DRY.ComputingBigCsv;
+using DRY.Loop;
 using DRY.ReplaceIFElseStatement;
 using DRY.SmartEnumeration;
 using System;
@@ -9,9 +10,10 @@ namespace DRY
     {
         static void Main(string[] args)
         {
-            LoopExample();
-            ReplaceIfElseStatement();
-            SmartEnumeration();
+            //LoopExample();
+            //ReplaceIfElseStatement();
+            //SmartEnumeration();
+            //CsvReader();
 
             Console.WriteLine("Hello World!");
         }
@@ -41,6 +43,14 @@ namespace DRY
         {
             Console.WriteLine(SmartEnumerationProgram.GetDiscount(EnumSubscription.Premium));
             Console.WriteLine(Subscriptions.Premium.Discount);
+        }
+        #endregion
+
+        #region CsvReader
+        static void CsvReader()
+        {
+            CsvReaderProgram.CsvReadWithoutPLINQ();
+            CsvReaderProgram.CsvReadWithPLINQ();
         }
         #endregion
     }
