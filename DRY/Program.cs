@@ -18,7 +18,8 @@ namespace DRY
             //SmartEnumeration();
             //CsvReader();
             //VisitorDesignPatternScenario1();
-            DecoratorDesignPatternScenario1();
+            //DecoratorDesignPatternScenario1();
+            DecoratorDesignPatternScenario2();
 
             Console.WriteLine("Hello World!");
         }
@@ -85,6 +86,11 @@ namespace DRY
             IWeatherService weatherCaching = new CachingWeatherService(weatherService);
             Console.WriteLine(weatherCaching.GetWeather("EG"));
             Console.WriteLine();
+        }
+
+        static void DecoratorDesignPatternScenario2()
+        {
+            //
         }
         #endregion
     }

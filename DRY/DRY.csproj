@@ -10,4 +10,9 @@
     <PackageReference Include="CsvHelper" Version="27.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DesignPatterns\DecoratorPattern\Scenario2\Abstract\" />
+    <Folder Include="DesignPatterns\DecoratorPattern\Scenario2\Concrete\" />
+  </ItemGroup>
+
 </Project>
