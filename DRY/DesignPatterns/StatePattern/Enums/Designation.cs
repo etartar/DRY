@@ -1,4 +1,4 @@
-﻿namespace DRY.DesignPatterns.StatePattern.Scenario1.Enum
+﻿namespace DRY.DesignPatterns.StatePattern.Enums
 {
     public enum Designation
     {

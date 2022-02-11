@@ -1,9 +1,6 @@
-﻿using DRY.DesignPatterns.StatePattern.Scenario1.Abstract;
-using System;
+﻿using DRY.DesignPatterns.StatePattern.Enums;
+using DRY.DesignPatterns.StatePattern.Scenario1.Abstract;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DRY.DesignPatterns.StatePattern.Scenario1.Concrete
 {
@@ -13,23 +10,23 @@ namespace DRY.DesignPatterns.StatePattern.Scenario1.Concrete
         {
             List<IValidation> criterias = new List<IValidation>();
 
-            IValidation assistantSalesAssociate = new DepartmentValidation(Enum.Department.SALES,
+            IValidation assistantSalesAssociate = new DepartmentValidation(Department.SALES,
                 new ExperienceValidation(0, 5, 
-                new QualificationValidation(Enum.Degree.HIGH_SCHOOL, null)));
+                new QualificationValidation(Degree.HIGH_SCHOOL, null)));
 
-            assistantSalesAssociate._designation = Enum.Designation.ASSISTANT_SALES_ASSOCIATE;
+            assistantSalesAssociate._designation = Designation.ASSISTANT_SALES_ASSOCIATE;
 
-            IValidation salesAssociate1 = new DepartmentValidation(Enum.Department.SALES,
+            IValidation salesAssociate1 = new DepartmentValidation(Department.SALES,
                 new ExperienceValidation(0, 5,
-                new QualificationValidation(Enum.Degree.BBA, null)));
+                new QualificationValidation(Degree.BBA, null)));
 
-            salesAssociate1._designation = Enum.Designation.SALES_ASSOCIATE;
+            salesAssociate1._designation = Designation.SALES_ASSOCIATE;
 
-            IValidation salesAssociate2 = new DepartmentValidation(Enum.Department.SALES,
+            IValidation salesAssociate2 = new DepartmentValidation(Department.SALES,
                 new ExperienceValidation(5, 10,
-                new QualificationValidation(Enum.Degree.HIGH_SCHOOL, null)));
+                new QualificationValidation(Degree.HIGH_SCHOOL, null)));
 
-            salesAssociate2._designation = Enum.Designation.SALES_ASSOCIATE;
+            salesAssociate2._designation = Designation.SALES_ASSOCIATE;
 
             criterias.Add(assistantSalesAssociate);
             criterias.Add(salesAssociate1);

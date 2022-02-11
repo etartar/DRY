@@ -1,4 +1,4 @@
-﻿using DRY.DesignPatterns.StatePattern.Scenario1.Enum;
+﻿using DRY.DesignPatterns.StatePattern.Enums;
 
 namespace DRY.DesignPatterns.StatePattern.Scenario1.Concrete
 {

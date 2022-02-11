@@ -1,6 +1,5 @@
-﻿using DRY.DesignPatterns.StatePattern.Scenario1.Abstract;
-using DRY.DesignPatterns.StatePattern.Scenario1.Enum;
-using System;
+﻿using DRY.DesignPatterns.StatePattern.Enums;
+using DRY.DesignPatterns.StatePattern.Scenario1.Abstract;
 
 namespace DRY.DesignPatterns.StatePattern.Scenario1.Concrete
 {
