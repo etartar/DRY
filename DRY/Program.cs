@@ -10,6 +10,10 @@ using DRY.DesignPatterns.DecoratorPattern.Scenario2.Abstract;
 using DRY.DesignPatterns.DecoratorPattern.Scenario2.Concrete;
 using DRY.DesignPatterns.DecoratorPattern.Scenario3.Concrete;
 using DRY.DesignPatterns.StatePattern.Scenario2.Concrete;
+using DRY.DesignPatterns.StrategyPattern.Scenario1.Concrete;
+using DRY.DesignPatterns.StrategyPattern.Scenario2.Concrete;
+using DRY.DesignPatterns.StrategyPattern.Scenario2.Concrete.Strategies;
+using DRY.DesignPatterns.StrategyPattern.Scenario2.Enums;
 using DRY.DesignPatterns.VisitorPattern.Scenario1.Concrete;
 using DRY.Loop;
 using DRY.ReplaceIFElseStatement;
@@ -36,6 +40,7 @@ namespace DRY
             //BuilderDesignPatternScenario1();
             //BuilderDesignPatternScenario2();
             //PrototypeDesignPatternScenario1();
+            StrategyDesignPatternScenario2();
 
             Console.WriteLine("Hello World!");
         }
@@ -281,7 +286,37 @@ namespace DRY
         #endregion
 
         #region Strategy Design Pattern
-        //
+        static void StrategyDesignPatternScenario1()
+        {
+            Context context;
+
+            context = new Context(new ConcreteStrategyA());
+            context.ExecuteContext();
+
+            context = new Context(new ConcreteStrategyB());
+            context.ExecuteContext();
+
+            context = new Context(new ConcreteStrategyC());
+            context.ExecuteContext();
+        }
+
+        static void StrategyDesignPatternScenario2()
+        {
+            PaymentOperation paymentOperation = new PaymentOperation();
+
+            PaymentType paymentType = PaymentType.CreditCard;
+
+            if (paymentType == PaymentType.MailOrder)
+                paymentOperation.SetPayment(new MailOrderStrategy());
+            else if (paymentType == PaymentType.BankTransfer)
+                paymentOperation.SetPayment(new BankTransferStrategy());
+            else if (paymentType == PaymentType.CreditCard)
+                paymentOperation.SetPayment(new CreditCardStrategy());
+            else
+                throw new NotImplementedException("Ödeme türü bulunamadı.");
+
+            paymentOperation.MakePayment();
+        }
         #endregion
 
         #region Factory Design Pattern

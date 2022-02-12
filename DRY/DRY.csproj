@@ -21,10 +21,6 @@
     <Folder Include="DesignPatterns\FactoryPattern\Scenario2\Abstract\" />
     <Folder Include="DesignPatterns\FactoryPattern\Scenario2\Concrete\" />
     <Folder Include="DesignPatterns\PrototypePattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\StrategyPattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\StrategyPattern\Scenario1\Concrete\" />
-    <Folder Include="DesignPatterns\StrategyPattern\Scenario2\Abstract\" />
-    <Folder Include="DesignPatterns\StrategyPattern\Scenario2\Concrete\" />
   </ItemGroup>
 
 </Project>
