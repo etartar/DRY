@@ -10,4 +10,13 @@
     <PackageReference Include="CsvHelper" Version="27.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DesignPatterns\BuilderPattern\Scenario1\Abstract\" />
+    <Folder Include="DesignPatterns\ChainOfResponsibilityPattern\" />
+    <Folder Include="DesignPatterns\AbstractFactoryPattern\" />
+    <Folder Include="DesignPatterns\FactoryPattern\" />
+    <Folder Include="DesignPatterns\StrategyPattern\" />
+    <Folder Include="DesignPatterns\PrototypePattern\" />
+  </ItemGroup>
+
 </Project>

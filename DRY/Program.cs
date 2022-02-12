@@ -1,4 +1,7 @@
 ﻿using DRY.ComputingBigCsv;
+using DRY.DesignPatterns.BuilderPattern.Scenario1.Concrete;
+using DRY.DesignPatterns.BuilderPattern.Scenario2.Concrete;
+using DRY.DesignPatterns.BuilderPattern.Scenario2.Concrete.PackageBuilders.Implementations;
 using DRY.DesignPatterns.DecoratorPattern.Scenario1.Abstract;
 using DRY.DesignPatterns.DecoratorPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.DecoratorPattern.Scenario2.Abstract;
@@ -10,6 +13,7 @@ using DRY.Loop;
 using DRY.ReplaceIFElseStatement;
 using DRY.SmartEnumeration;
 using System;
+using System.Text;
 
 namespace DRY
 {
@@ -24,8 +28,10 @@ namespace DRY
             //VisitorDesignPatternScenario1();
             //DecoratorDesignPatternScenario1();
             //DecoratorDesignPatternScenario2();
-            DecoratorDesignPatternScenario3();
+            //DecoratorDesignPatternScenario3();
             //StateDesignPatternScenario2();
+            //BuilderDesignPatternScenario1();
+            BuilderDesignPatternScenario2();
 
             Console.WriteLine("Hello World!");
         }
@@ -169,6 +175,75 @@ namespace DRY
             Console.WriteLine("******");
             #endregion
         }
+        #endregion
+
+        #region Builder Design Pattern
+        static void BuilderDesignPatternScenario1()
+        {
+            var invoiceBuilder = new InvoiceBuilder();
+            invoiceBuilder.SetCompanyName("ET Software Company")
+                            .SetVat("200.100.300")
+                            .SetItem(new ItemBuilder().SetItemName("Item 1").SetAmount(100).Builder())
+                            .SetItem(new ItemBuilder().SetItemName("Item 2").SetAmount(200).Builder())
+                            .SetItem(new ItemBuilder().SetItemName("Item 3").SetAmount(300).Builder())
+                            .SetOthersInformations("it is a new information");
+
+            Invoice invoice = invoiceBuilder.Builder();
+        }
+
+        static void BuilderDesignPatternScenario2()
+        {
+            Console.WriteLine("Subscription package builder.");
+
+            PackageDirector packageDirector = new PackageDirector();
+            
+            packageDirector.SetPackageBuilder(new FreePackageBuilder());
+            PackageDetails(packageDirector.BuildFreeMonthlyPackage());
+
+            packageDirector.SetPackageBuilder(new EssentialsPackageBuilder());
+            PackageDetails(packageDirector.BuildEssentialsMonthlyEssentials());
+
+            packageDirector.SetPackageBuilder(new ProfessionalPackageBuilder());
+            PackageDetails(packageDirector.BuildProfessionalMonthlyEssentials());
+
+            packageDirector.SetPackageBuilder(new PremiumPackageBuilder());
+            PackageDetails(packageDirector.BuildPremiumYearlyEssentials());
+        }
+
+        static void PackageDetails(SubscriptionPackage subscriptionPackage)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("------");
+            stringBuilder.AppendLine($"Duration Type : {subscriptionPackage.DurationType}");
+            stringBuilder.AppendLine($"Package Type : {subscriptionPackage.PackageType}");
+            stringBuilder.AppendLine($"Contact Counts : {subscriptionPackage.Contacts}");
+            stringBuilder.AppendLine($"Unit Price : {subscriptionPackage.UnitPrice}");
+            stringBuilder.AppendLine($"Total Price : {subscriptionPackage.TotalPrice}");
+            stringBuilder.AppendLine($"PaymentTransactionsFees : {subscriptionPackage.PaymentTransactionFees}");
+            stringBuilder.AppendLine("------");
+
+            Console.WriteLine(stringBuilder.ToString());
+        }
+        #endregion
+
+        #region ChainOfResponsibility Design Pattern
+        //
+        #endregion
+
+        #region Prototype Design Pattern
+        //
+        #endregion
+
+        #region Strategy Design Pattern
+        //
+        #endregion
+
+        #region Factory Design Pattern
+        //
+        #endregion
+
+        #region Abstract Factory Design Pattern
+        //
         #endregion
     }
 }
