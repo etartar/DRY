@@ -16,10 +16,6 @@
     <Folder Include="DesignPatterns\AbstractFactoryPattern\Scenario2\Abstract\" />
     <Folder Include="DesignPatterns\AbstractFactoryPattern\Scenario2\Concrete\" />
     <Folder Include="DesignPatterns\BuilderPattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\ChainOfResponsibilityPattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\ChainOfResponsibilityPattern\Scenario1\Concrete\" />
-    <Folder Include="DesignPatterns\ChainOfResponsibilityPattern\Scenario2\Abstract\" />
-    <Folder Include="DesignPatterns\ChainOfResponsibilityPattern\Scenario2\Concrete\" />
     <Folder Include="DesignPatterns\FactoryPattern\Scenario1\Abstract\" />
     <Folder Include="DesignPatterns\FactoryPattern\Scenario1\Concrete\" />
     <Folder Include="DesignPatterns\FactoryPattern\Scenario2\Abstract\" />

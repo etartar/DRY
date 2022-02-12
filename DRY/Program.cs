@@ -2,6 +2,8 @@
 using DRY.DesignPatterns.BuilderPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.BuilderPattern.Scenario2.Concrete;
 using DRY.DesignPatterns.BuilderPattern.Scenario2.Concrete.PackageBuilders.Implementations;
+using DRY.DesignPatterns.ChainOfResponsibilityPattern.Scenario1.Concrete;
+using DRY.DesignPatterns.ChainOfResponsibilityPattern.Scenario1.Concrete.Handlers;
 using DRY.DesignPatterns.DecoratorPattern.Scenario1.Abstract;
 using DRY.DesignPatterns.DecoratorPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.DecoratorPattern.Scenario2.Abstract;
@@ -256,7 +258,26 @@ namespace DRY
         #endregion
 
         #region ChainOfResponsibility Design Pattern
-        //
+        static void ChainOfResponsibilityScenario1()
+        {
+            var memberControlHandler = new MemberControlHandler();
+            var pandemicControlHandler = new PandemicControlHandler();
+            var roomControlHandler = new RoomControlHandler();
+            var rentARoomHandler = new RentARoomHandler();
+
+            memberControlHandler.SetNext(pandemicControlHandler)
+                                .SetNext(roomControlHandler)
+                                .SetNext(rentARoomHandler);
+
+            var result = memberControlHandler.Handle(new RentARoomModel
+            {
+                Name = "Emir",
+                PersonCount = 2,
+                RoomNumber = 1,
+            });
+
+            Console.ReadKey();
+        }
         #endregion
 
         #region Strategy Design Pattern
