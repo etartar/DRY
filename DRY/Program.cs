@@ -14,6 +14,7 @@ using DRY.ReplaceIFElseStatement;
 using DRY.SmartEnumeration;
 using System;
 using System.Text;
+using PrototypeOrder = DRY.DesignPatterns.PrototypePattern.Scenario1.Concrete.Order;
 
 namespace DRY
 {
@@ -31,7 +32,8 @@ namespace DRY
             //DecoratorDesignPatternScenario3();
             //StateDesignPatternScenario2();
             //BuilderDesignPatternScenario1();
-            BuilderDesignPatternScenario2();
+            //BuilderDesignPatternScenario2();
+            //PrototypeDesignPatternScenario1();
 
             Console.WriteLine("Hello World!");
         }
@@ -226,11 +228,34 @@ namespace DRY
         }
         #endregion
 
-        #region ChainOfResponsibility Design Pattern
-        //
+        #region Prototype Design Pattern
+        static void PrototypeDesignPatternScenario1()
+        {
+            PrototypeOrder mainOrder = PrototypeOrder.Create("Emir TARTAR", "emirtartar.com", 2500M);
+            OrderInformation(mainOrder);
+
+            var cloneOrder1 = mainOrder.Clone();
+            OrderInformation((PrototypeOrder)cloneOrder1);
+
+            var cloneOrder2 = mainOrder.Clone();
+            OrderInformation((PrototypeOrder)cloneOrder2);
+
+            var cloneOrder3 = mainOrder.Clone();
+            OrderInformation((PrototypeOrder)cloneOrder3);
+        }
+
+        static void OrderInformation(PrototypeOrder order)
+        {
+            Console.WriteLine("----");
+            Console.WriteLine($"Id : {order.Id}");
+            Console.WriteLine($"Contact : {order.Contact}");
+            Console.WriteLine($"Address : {order.Address}");
+            Console.WriteLine($"Total Price : {order.TotalPrice}");
+            Console.WriteLine("----");
+        }
         #endregion
 
-        #region Prototype Design Pattern
+        #region ChainOfResponsibility Design Pattern
         //
         #endregion
 
