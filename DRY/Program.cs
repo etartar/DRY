@@ -1,4 +1,7 @@
 ﻿using DRY.ComputingBigCsv;
+using DRY.DesignPatterns.AbstractFactoryPattern.Scenario1.Concrete;
+using DRY.DesignPatterns.AbstractFactoryPattern.Scenario2.Concrete.Implementations.Airway;
+using DRY.DesignPatterns.AbstractFactoryPattern.Scenario2.Concrete.Implementations.Railway;
 using DRY.DesignPatterns.BuilderPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.BuilderPattern.Scenario2.Concrete;
 using DRY.DesignPatterns.BuilderPattern.Scenario2.Concrete.PackageBuilders.Implementations;
@@ -9,6 +12,13 @@ using DRY.DesignPatterns.DecoratorPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.DecoratorPattern.Scenario2.Abstract;
 using DRY.DesignPatterns.DecoratorPattern.Scenario2.Concrete;
 using DRY.DesignPatterns.DecoratorPattern.Scenario3.Concrete;
+using DRY.DesignPatterns.FactoryPattern.Scenario1.Concrete;
+using DRY.DesignPatterns.FactoryPattern.Scenario2.Abstract;
+using DRY.DesignPatterns.FactoryPattern.Scenario2.Concrete;
+using DRY.DesignPatterns.FactoryPattern.Scenario2.Enum;
+using DRY.DesignPatterns.FactoryPattern.Scenario3.Abstract;
+using DRY.DesignPatterns.FactoryPattern.Scenario3.Concrete;
+using DRY.DesignPatterns.FactoryPattern.Scenario3.Concrete.Implementations.Garanti;
 using DRY.DesignPatterns.StatePattern.Scenario2.Concrete;
 using DRY.DesignPatterns.StrategyPattern.Scenario1.Concrete;
 using DRY.DesignPatterns.StrategyPattern.Scenario2.Concrete;
@@ -28,19 +38,7 @@ namespace DRY
     {
         static void Main(string[] args)
         {
-            //LoopExample();
-            //ReplaceIfElseStatement();
-            //SmartEnumeration();
-            //CsvReader();
-            //VisitorDesignPatternScenario1();
-            //DecoratorDesignPatternScenario1();
-            //DecoratorDesignPatternScenario2();
-            //DecoratorDesignPatternScenario3();
-            //StateDesignPatternScenario2();
-            //BuilderDesignPatternScenario1();
-            //BuilderDesignPatternScenario2();
-            //PrototypeDesignPatternScenario1();
-            StrategyDesignPatternScenario2();
+            AbstractFactoryDesignPatternScenario1();
 
             Console.WriteLine("Hello World!");
         }
@@ -320,11 +318,74 @@ namespace DRY
         #endregion
 
         #region Factory Design Pattern
-        //
+        static void FactoryDesignPatternScenario1()
+        {
+            var bmw = CarFactory.CreateCar("BMW", "Siyah", 240000, 2016, true);
+            var audi = CarFactory.CreateCar("Audi", "Beyaz", 194000, 2018, false);
+
+            bmw.ShowCarInfo();
+            Console.WriteLine();
+            audi.ShowCarInfo();
+        }
+
+        static void FactoryDesignPatternScenario2()
+        {
+            DriverLicence driverLicence = DrivingSchoolFactory.CreateLicence(DriverLicenceType.E);
+            driverLicence.Drive();
+        }
+
+        static void FactoryDesignPatternScenario3()
+        {
+            IPayInputModel payInputModel = new GarantiPayInputModel
+            {
+                CardNumber = "12350259",
+                Price = 1299.99M,
+                OrderNumber = Guid.NewGuid().ToString(),
+            };
+
+            IPayment payment = PaymentFactory.InitializePayment(payInputModel.CardNumber);
+
+            payment.Pay(payInputModel);
+        }
         #endregion
 
         #region Abstract Factory Design Pattern
-        //
+        static void AbstractFactoryDesignPatternScenario1()
+        {
+            var audiFactory = new AudiFactory();
+            var bmwFactory = new BMWFactory();
+
+            var audiCar = audiFactory.CreateCar("Beyaz", 194000, 2018, false);
+            var bmwCar = bmwFactory.CreateCar("Kırmızı", 234000, 2021, true);
+
+            var audiMotorCycle = audiFactory.CreateMotorCycle("Yarış Motoru", "Siyah", 125000, 2021);
+            var bmwMotorCycle = bmwFactory.CreateMotorCycle("Cadde Motoru", "Mavi", 135000, 2021);
+
+            audiCar.ShowCarInfo();
+            Console.WriteLine();
+            audiMotorCycle.ShowMotorCycleInfo();
+            Console.WriteLine();
+            bmwCar.ShowCarInfo();
+            Console.WriteLine();
+            bmwMotorCycle.ShowMotorCycleInfo();
+        }
+
+        static void AbstractFactoryDesignPatternScenario2()
+        {
+            RailwayFactory railwayFactory = new RailwayFactory();
+            var train = railwayFactory.CreateVehicle();
+            var trainStation = railwayFactory.CreateStation();
+            train.GetSpeed();
+            trainStation.DistanceToCityCenter();
+            
+            Console.WriteLine();
+
+            AirwayFactory airwayFactory = new AirwayFactory();
+            var plane = airwayFactory.CreateVehicle();
+            var airwayStation = airwayFactory.CreateStation();
+            plane.GetSpeed();
+            airwayStation.DistanceToCityCenter();
+        }
         #endregion
     }
 }

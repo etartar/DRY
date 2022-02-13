@@ -11,15 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DesignPatterns\AbstractFactoryPattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\AbstractFactoryPattern\Scenario1\Concrete\" />
-    <Folder Include="DesignPatterns\AbstractFactoryPattern\Scenario2\Abstract\" />
-    <Folder Include="DesignPatterns\AbstractFactoryPattern\Scenario2\Concrete\" />
     <Folder Include="DesignPatterns\BuilderPattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\FactoryPattern\Scenario1\Abstract\" />
-    <Folder Include="DesignPatterns\FactoryPattern\Scenario1\Concrete\" />
-    <Folder Include="DesignPatterns\FactoryPattern\Scenario2\Abstract\" />
-    <Folder Include="DesignPatterns\FactoryPattern\Scenario2\Concrete\" />
     <Folder Include="DesignPatterns\PrototypePattern\Scenario1\Abstract\" />
   </ItemGroup>
 
